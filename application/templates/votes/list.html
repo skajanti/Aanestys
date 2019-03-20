@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Party</th>
+    </tr>
+    {% for candidate in votes %}
+    <tr>
+      <td>{{ candidate.name }}</td>
+      <td>{{ candidate.party }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

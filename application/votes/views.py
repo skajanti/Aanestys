@@ -1,6 +1,10 @@
 from application import app, db
-from flask import render_template, request
+from flask import redirect, render_template, request, url_for
 from application.votes.models import Candidate
+
+@app.route("/votes", methods=["GET"])
+def votes_index():
+	return render_template("votes/list.html", votes = Candidate.query.all())
 
 @app.route("/votes/new/")
 def votes_form():
@@ -8,9 +12,11 @@ def votes_form():
 
 @app.route("/votes/", methods=["POST"])
 def votes_create():
-	v = Candidate(request.form.get("name"))
+	cn = Candidate(request.form.get("name"))
+	cp = Candidate(request.form.get("party"))
 
-	db.session().add(v)
+	db.session().add(cn)
+	db.session().add(cp)
 	db.session().commit()
 
-	return "hello world!"
+	return redirect(url_for("votes_index"))
