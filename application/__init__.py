@@ -17,8 +17,9 @@ db = SQLAlchemy(app)
 # Luetaan kansiosta application tiedoston views sisältö
 from application import views
 
-# Luetaan kansiosta application/votes tiedoston models sisältö
+# Luetaan kansiosta application/votes tiedostojen models ja views sisältö
 from application.votes import models
+from application.votes import views
 
 # Luodaan lopulta tarvittavat tietokantataulut
 db.create_all()
