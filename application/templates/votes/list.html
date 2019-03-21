@@ -10,6 +10,12 @@
     <tr>
       <td>{{ candidate.name }}</td>
       <td>{{ candidate.party }}</td>
+      <td>
+	<form method="POST" action="{{ url_for('votes_set_party', candidate_id=candidate.id) }}">
+	  <input type="text" name="party"/>
+	  <input type="submit" value="Set party"/>
+	</form>
+      </td>
     </tr>
     {% endfor %}
   </table>

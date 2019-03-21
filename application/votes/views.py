@@ -10,13 +10,20 @@ def votes_index():
 def votes_form():
 	return render_template("votes/new.html")
 
+@app.route("/votes/<candidate_id>/", methods=["POST"])
+def votes_set_party(candidate_id):
+
+	p = Candidate.query.get(candidate_id)
+	p.party = request.form.get("party")
+	db.session().commit()
+
+	return redirect(url_for("votes_index"))
+
 @app.route("/votes/", methods=["POST"])
 def votes_create():
-	cn = Candidate(request.form.get("name"))
-	cp = Candidate(request.form.get("party"))
+	c = Candidate(request.form.get("name"))
 
-	db.session().add(cn)
-	db.session().add(cp)
+	db.session().add(c)
 	db.session().commit()
 
 	return redirect(url_for("votes_index"))

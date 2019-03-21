@@ -3,7 +3,6 @@
 {% block body %}
 <form method="POST" action="{{ url_for('votes_create') }}">
   <input type="text" name="name"/>
-  <input type="text" name="party"/>
   <input type="submit" value="Add a new Candidate"/>
 </form>
 {% endblock %}

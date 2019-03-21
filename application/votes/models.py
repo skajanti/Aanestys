@@ -19,7 +19,7 @@ class Vote(db.Model):
 
 class Voter(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
-	name = db.Column(db.String(32))
+	name = db.Column(db.String(144))
 
 	def __init__(self, name):
 		return self.name
