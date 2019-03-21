@@ -5,13 +5,13 @@ Eduskuntavaalit kilpailutetaan yksityiselle sektorille. Google tekee tarjouksens
 Tietokanta on arkaluontoinen ja tarvitsee tietosujaa.
 
 Ominaisuuksia:
-Kirjautuminen
-Ehdokkaan lisääminen ja muokkaaminen
-Äänestäjän lisääminen ja muokkaaminen
-Äänen kirjaaminen
-Vaalin tuloksen laskeminen
-Ehdokkaiden listaaminen
-Äänestäjien ja eri vaaleissa läsnäolon listaaminen
+1.Kirjautuminen
+2.Ehdokkaan lisääminen ja muokkaaminen
+3.Äänestäjän lisääminen ja muokkaaminen
+4.Äänen kirjaaminen
+5.Vaalin tuloksen laskeminen
+6.Ehdokkaiden listaaminen
+7.Äänestäjien ja eri vaaleissa läsnäolon listaaminen
 
 [Ohjelma herokussa](https://tsoha-python-aanestys-seppo.herokuapp.com/)
 
