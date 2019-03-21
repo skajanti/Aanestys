@@ -1,0 +1,1 @@
+Käyttäjä haluaa tallentaa ehdokkaan tiedot. Käyttäjän tulee ensin lisätä ehdokas "Add a candidate" -sivulla, ja sitten avautuvalla sivulla lisätä ehdokkaan puolue.

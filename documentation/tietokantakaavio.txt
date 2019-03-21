@@ -1,0 +1,4 @@
+Tietokanta:
+Candidate(pk:id:Integer, name:String, party:String)
+Voter(pk:id:Integer, name:String)
+Vote(pk:id:Integer, year:Integer, fk:candidate_id:Integer(Candidate.id), fk:voter_id:Integer(Voter.id))
