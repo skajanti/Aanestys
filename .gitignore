@@ -1,5 +1,9 @@
+﻿# manually added
+tasks.db
+.vs/
 venv
 __pycache__
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -123,4 +127,3 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-tasks.db

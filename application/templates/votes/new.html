@@ -1,8 +1,36 @@
 {% extends "layout.html" %}
   
 {% block body %}
-<form method="POST" action="{{ url_for('votes_create') }}">
-  <input type="text" name="name"/>
-  <input type="submit" value="Add a new Candidate"/>
+<form method="POST" action="{{ url_for('candidate_create') }}">
+    <table>
+        <tr>
+            <td>
+                {{ form.name.label }}
+            </td>
+            <td>
+                {{ form.name }}
+            </td>
+            <td>
+                <ul>
+                    {% for error in form.name.errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form.party.label }}
+            </td>
+            <td>
+                {{ form.party }}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Add a new Candidate" />
+            </td>
+        </tr>
+    </table>
 </form>
 {% endblock %}

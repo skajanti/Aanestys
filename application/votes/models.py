@@ -5,6 +5,8 @@ class Candidate(db.Model):
 	name = db.Column(db.String(144))
 	party = db.Column(db.String(32))
 
+    #votes = db.releationship("Vote", backref='candidate', lazy=True)
+
 	def __init__(self, name):
 		self.name = name
 
