@@ -27,26 +27,26 @@ def auth_logout():
     logout_user()
     return redirect(url_for("index"))
 
-@app.route("/auth/create_account")
-def create_account():
-    # form = Account_CreateForm(request.form)
+# @app.route("/auth/create_account")
+# def create_account():
+#     # form = Account_CreateForm(request.form)
 
-    # l = User(form.username.data)
-    # l.name = form.username.data
-    # l.password = form.password.data
+#     # l = User(form.username.data)
+#     # l.name = form.username.data
+#     # l.password = form.password.data
 
-    # db.session().add(l)
-    # db.session().commit()
+#     # db.session().add(l)
+#     # db.session().commit()
 
-    name = request.form.get('name')
-    password = request.form.get('password')
-    usernameOhjelma herokussa = request.form.get('username')
+#     name = request.form.get('name')
+#     password = request.form.get('password')
+#     usernameOhjelma herokussa = request.form.get('username')
 
     
 
-    new_user = User(username=username, password=password, name=name)
+#     new_user = User(username=username, password=password, name=name)
 
-    db.session.add(new_user)
-    db.session.commit()
+#     db.session.add(new_user)
+#     db.session.commit()
 
-    return redirect(url_for("index"))
+#     return redirect(url_for("index"))
