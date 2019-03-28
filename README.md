@@ -19,3 +19,8 @@ Ominaisuuksia:
 [Käyttötapauksia](https://github.com/skajanti/Aanestys/blob/master/documentation/user_story.txt)
 
 Äänestäjän luominen antaa tällä hetkellä jostain syystä seuraavan errorin: TypeError: 'str' object is not callable
+Rekisteröinti ei toimi
+
+Kirjautumistunnus:
+login: admin
+password: admin
