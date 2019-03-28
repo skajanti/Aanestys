@@ -15,7 +15,7 @@ Ominaisuuksia:
 
 [Ohjelma herokussa](https://tsoha-python-aanestys-seppo.herokuapp.com/)
 
-[Tietokantakaavio](https://github.com/skajanti/Aanestys/blob/master/documentation/tietokantakaavio.txt)
+[Tietokantakaavio](https://github.com/skajanti/Aanestys/blob/master/documentation/tietokantakaavio.html)
 [Käyttötapauksia](https://github.com/skajanti/Aanestys/blob/master/documentation/user_story.txt)
 
 Äänestäjän luominen antaa tällä hetkellä jostain syystä seuraavan errorin: TypeError: 'str' object is not callable
