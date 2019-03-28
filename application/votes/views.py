@@ -42,6 +42,19 @@ def candidate_create():
 
 	return redirect(url_for("votes_index"))
 
+@app.route("/votes/<candidate_id>/", methods=["POST"])
+@login_required
+def candidate_remove(candidate_id):
+	c = Candidate.query.get(candidate_id)
+	print("debug", c)
+	db.session.delete(c)
+	db.session.commit()
+
+	#d = addresses_table.delete(Candidate.query.get(id))
+	#d.execute()
+
+	return redirect(url_for("votes_index"))
+
 @app.route("/votes/new_voter/")
 @login_required
 def voter_form():
