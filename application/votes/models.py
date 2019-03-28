@@ -5,7 +5,7 @@ class Candidate(db.Model):
 	name = db.Column(db.String(144))
 	party = db.Column(db.String(32))
 
-    #votes = db.releationship("Vote", backref='candidate', lazy=True)
+	votes = db.relationship("Vote", backref='candidate', lazy=True)
 
 	def __init__(self, name):
 		self.name = name
@@ -13,7 +13,7 @@ class Candidate(db.Model):
 class Vote(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	candidate_id = db.Column(db.Integer, db.ForeignKey("candidate.id"), nullable=False)
-	voter_id = db.Column(db.Integer, db.ForeignKey("voter.id"), nullable=False)
+	#voter_id = db.Column(db.Integer, db.ForeignKey("voter.id"), nullable=False)
 	year = db.Column(db.Integer)
 
 	def __init__(self, year):

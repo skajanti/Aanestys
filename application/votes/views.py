@@ -27,10 +27,15 @@ def candidate_set_party(candidate_id):
 @app.route("/votes/", methods=["POST"])
 @login_required
 def candidate_create():
-	c = Candidate(request.form.get("name"))
+	form = CandidateForm(request.form)
 
-    #if not form.validate():
-    #    return render_template("votes/new.html", form = form)
+	#c = Candidate(request.form.get("name"))
+
+	c = Candidate(form.name.data)
+	c.party = form.party.data
+
+	if not form.validate():
+		return render_template("votes/new.html", form = form)
 
 	db.session().add(c)
 	db.session().commit()
