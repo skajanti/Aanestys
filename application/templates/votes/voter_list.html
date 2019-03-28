@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Name</th>
+    </tr>
+    {% for voter in votes %}
+    <tr>
+      <td>{{ voter.name }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
