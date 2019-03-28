@@ -8,9 +8,9 @@ class LoginForm(FlaskForm):
     class Meta:
         csrf = False
 
-class Account_CreateForm(FlaskForm):
-    username = StringField("Username")
-    password = PasswordField("Password")
+# class Account_CreateForm(FlaskForm):
+#     username = StringField("Username")
+#     password = PasswordField("Password")
   
-    class Meta:
-        csrf = False
+#     class Meta:
+#         csrf = False
