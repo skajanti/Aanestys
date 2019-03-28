@@ -40,7 +40,7 @@ def create_account():
 
     name = request.form.get('name')
     password = request.form.get('password')
-    username = request.form.get('username')
+    usernameOhjelma herokussa = request.form.get('username')
 
     
 
