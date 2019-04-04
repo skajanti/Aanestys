@@ -15,22 +15,17 @@
         <td>
           <a href="{{ url_for('auth_login') }}">Kirjaudu</a>
         </td>
-        <!-- <td>
-            <a href="{{ url_for('create_account') }}">Luo tili</a>
-        </td> -->
+      </tr>
+      <tr>
+        <td>
+          <a href="{{ url_for('create_accountform') }}">Luo tili</a>
+        </td>
       </tr>
       {% endif %}
-
       <ul>
           <li><a href="{{ url_for('votes_index') }}">List candidates</a></li>
           <li><a href="{{ url_for('candidate_form') }}">Add a candidate</a></li>
       </ul>
-
-      <!-- <ul>
-        <li><a href="{{ url_for('voter_form') }}">Add a voter</a></li>
-        <li><a href="{{ url_for('voter_index') }}">List voters</a></li>
-      </ul> -->
-
       {% block body %}
       <p>
           Content.

@@ -13,19 +13,21 @@ class Candidate(db.Model):
 class Vote(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	candidate_id = db.Column(db.Integer, db.ForeignKey("candidate.id"), nullable=False)
-	voter_id = db.Column(db.Integer, db.ForeignKey("voter.id"), nullable=False)
+	voter_id = db.Column(db.Integer, db.ForeignKey("account.id"), nullable=False)
 	year = db.Column(db.Integer)
 
-	def __init__(self, year):
+	def __init__(self, candidate_id, voter_id):
 		self.year = 0
+		self.candidate_id = candidate_id
+		self.voter_id = voter_id
 
-class Voter(db.Model):
-	id = db.Column(db.Integer, primary_key=True)
-	name = db.Column(db.String(144))
+# class Voter(db.Model):
+# 	id = db.Column(db.Integer, primary_key=True)
+# 	name = db.Column(db.String(144))
 
-	account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
+# 	account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
 
-	votes = db.relationship("Vote", backref='voter', lazy=True)
+# 	votes = db.relationship("Vote", backref='voter', lazy=True)
 
-	def __init__(self, name):
-		return self.name
+# 	def __init__(self, name):
+# 		return self.name

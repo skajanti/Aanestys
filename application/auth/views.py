@@ -3,7 +3,7 @@ from flask_login import login_user, logout_user
 
 from application import app, db
 from application.auth.models import User
-from application.auth.forms import LoginForm#, Account_CreateForm
+from application.auth.forms import LoginForm, Account_CreateForm
 
 @app.route("/auth/login", methods = ["GET", "POST"])
 def auth_login():
@@ -27,26 +27,19 @@ def auth_logout():
     logout_user()
     return redirect(url_for("index"))
 
-# @app.route("/auth/create_account")
-# def create_account():
-#     # form = Account_CreateForm(request.form)
+@app.route("/auth/new")
+def create_accountform():
+    return render_template("auth/create_accountform.html", form=Account_CreateForm())
 
-#     # l = User(form.username.data)
-#     # l.name = form.username.data
-#     # l.password = form.password.data
+@app.route("/auth/create_account", methods = ["POST"])
+def create_account():
+    form = Account_CreateForm(request.form)
 
-#     # db.session().add(l)
-#     # db.session().commit()
+    l = User(form.name.data, form.username.data, form.password.data)
+    # l.name = form.name.data
+    # l.password = form.password.data
 
-#     name = request.form.get('name')
-#     password = request.form.get('password')
-#     usernameOhjelma herokussa = request.form.get('username')
+    db.session().add(l)
+    db.session().commit()
 
-    
-
-#     new_user = User(username=username, password=password, name=name)
-
-#     db.session.add(new_user)
-#     db.session.commit()
-
-#     return redirect(url_for("index"))
+    return redirect(url_for("index"))

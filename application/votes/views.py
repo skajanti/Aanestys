@@ -1,9 +1,11 @@
 from application import app, db
-from application.votes.models import Candidate
+from application.votes.models import Candidate, Vote
+from application.auth.models import User
 from application.votes.forms import CandidateForm, VoterForm
 
 from flask import redirect, render_template, request, url_for
-from flask_login import login_required
+from flask_login import login_required, current_user
+from sqlalchemy.sql.expression import func
 
 @app.route("/votes", methods=["GET"])
 def votes_index():
@@ -42,39 +44,33 @@ def candidate_create():
 
 	return redirect(url_for("votes_index"))
 
-@app.route("/votes/<candidate_id>/", methods=["POST"])
+@app.route("/votes/<candidateid>/", methods=["POST"])
 @login_required
-def candidate_remove(candidate_id):
-	c = Candidate.query.get(candidate_id)
-	print("debug", c)
-	db.session.delete(c)
-	db.session.commit()
+def candidate_remove(candidateid):
+	#c = Candidate.query.get(candidate_id)
+	
+
+	print("debug")
+	db.session().query(Candidate).filter(Candidate.id==candidateid).delete()
+	#db.session().delete(c)
+	#votes.delete().where(votes.Candidate.id==candidate_id)
+	db.session().commit()
 
 	#d = addresses_table.delete(Candidate.query.get(id))
 	#d.execute()
 
 	return redirect(url_for("votes_index"))
 
-@app.route("/votes/new_voter/")
+@app.route("/votes/<candidate_id>/vote/", methods=["POST"])
 @login_required
-def voter_form():
-	return render_template("votes/new_voter.html", form = VoterForm)()
+def cast_vote(candidate_id):
+	
+	#v.candidate_id = candidate_id
+	#v.voter_id = current_user.id
 
-@app.route("/votes/", methods=["POST"])
-@login_required
-def voter_create():
-	form = VoterForm(request.form)
-
-	v = Voter(form.name.data)
-
-	if not form.validate():
-		return render_template("votes/new_voter.html", form = form)()
+	v = Vote(candidate_id, current_user.id)
 
 	db.session().add(v)
 	db.session().commit()
 
 	return redirect(url_for("votes_index"))
-
-@app.route("/votes/", methods=["GET"])
-def voter_index():
-	return render_template("votes/voter_list.html", votes = Voter.query.all())

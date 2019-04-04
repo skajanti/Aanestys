@@ -17,8 +17,13 @@
 	      </form>
       </td>
       <td>
-        <form method="POST" action="{{ url_for('candidate_remove', candidate_id=candidate.id) }}">
+        <form method="POST" action="{{ url_for('candidate_remove', candidateid=candidate.id) }}">
           <input type="submit" value="Remove candidate"/>
+        </form>
+      </td>
+      <td>
+        <form method="POST" action="{{ url_for('cast_vote', candidate_id=candidate.id) }}">
+          <input type="submit" value="Vote"/>
         </form>
       </td>
     </tr>
