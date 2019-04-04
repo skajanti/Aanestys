@@ -51,7 +51,7 @@ def candidate_remove(candidateid):
 	
 
 	print("debug")
-	db.session().query(Candidate).filter(Candidate.id==candidateid).delete()
+	db.session().query(Candidate).filter(Candidate.id == candidateid).delete()
 	#db.session().delete(c)
 	#votes.delete().where(votes.Candidate.id==candidate_id)
 	db.session().commit()
@@ -74,3 +74,7 @@ def cast_vote(candidate_id):
 	db.session().commit()
 
 	return redirect(url_for("votes_index"))
+
+@app.route("/votes_count", methods=["GET"])
+def votes_count():
+	return render_template("votes/vote_count.html", votes = Candidate.query.all(), vote_count=Candidate.count_votes())

@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block body %}
+{% if vote_count is defined %}
+<p>Vote tally:</p>
+<ul>
+	{% for candidate in vote_count %}
+	<li>
+		{{ candidate.name }} {{ vote_count }}
+	</li>
+	{% endfor %}
+	{% for candidate in votes %}
+	<tr>
+		{{ candidate.name }}
+	</tr>
+	{% endfor %}
+</ul>
+{% endif %}
+{% endblock %}
