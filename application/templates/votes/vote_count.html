@@ -4,16 +4,12 @@
 {% if vote_count is defined %}
 <p>Vote tally:</p>
 <ul>
-	{% for candidate in vote_count %}
-	<li>
-		{{ candidate.name }} {{ vote_count }}
-	</li>
-	{% endfor %}
-	{% for candidate in votes %}
-	<tr>
-		{{ candidate.name }}
-	</tr>
-	{% endfor %}
+    {% for candidate in vote_count %}
+    <li>
+        {{ candidate.name }} {{ vote_count }}
+    </li>
+    {% endfor %}
+
 </ul>
 {% endif %}
 {% endblock %}
