@@ -44,7 +44,7 @@ def candidate_create():
 
 	return redirect(url_for("votes_index"))
 
-@app.route("/votes/<candidateid>/", methods=["POST"])
+@app.route("/votes/<candidateid>/remove_candidate", methods=["POST"])
 @login_required
 def candidate_remove(candidateid):
 	#c = Candidate.query.get(candidate_id)
