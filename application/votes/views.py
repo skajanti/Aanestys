@@ -5,6 +5,7 @@ from application.votes.forms import CandidateForm, SetPartyForm
 
 from flask import redirect, render_template, request, url_for
 from flask_login import current_user
+from flask_wtf import FlaskForm
 from sqlalchemy.sql.expression import func
 
 @app.route("/votes", methods=["GET"])
@@ -19,9 +20,9 @@ def candidate_form():
 @app.route("/votes/<candidate_id>/", methods=["POST"])
 @login_required(role="ADMIN")
 def candidate_set_party(candidate_id):
-	form = SetPartyForm(request.form)
+	#form = SetPartyForm(request.form)
 
-	p = Candidate(form.name.data)
+	p = Candidate.query.get(candidate_id)
 	p.party = request.form.get("party")
 	db.session().commit()
 
@@ -46,26 +47,16 @@ def candidate_create():
 @app.route("/votes/<candidateid>/remove_candidate", methods=["POST"])
 @login_required(role="ADMIN")
 def candidate_remove(candidateid):
-	#c = Candidate.query.get(candidate_id)
-	
 
 	print("debug")
 	db.session().query(Candidate).filter(Candidate.id == candidateid).delete()
-	#db.session().delete(c)
-	#votes.delete().where(votes.Candidate.id==candidate_id)
+
 	db.session().commit()
-
-	#d = addresses_table.delete(Candidate.query.get(id))
-	#d.execute()
-
 	return redirect(url_for("votes_index"))
 
 @app.route("/votes/<candidate_id>/vote/", methods=["POST"])
 @login_required(role="ANY")
 def cast_vote(candidate_id):
-	
-	#v.candidate_id = candidate_id
-	#v.voter_id = current_user.id
 
 	v = Vote(candidate_id, current_user.id)
 

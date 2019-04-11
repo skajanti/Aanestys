@@ -9,9 +9,9 @@ class LoginForm(FlaskForm):
         csrf = False
 
 class Account_CreateForm(FlaskForm):
-    username = StringField("Username", [validators.Length(max=24)])
-    password = PasswordField("Password"), [validators.Length(max=24)]
-    name = StringField("Name", [validators.Length(max=24)])
+    username = StringField("Username", [validators.Length(max=4, message='Username must be between 4 and 24 characters long.'), validators.Length(max=24, message='Username must be between 4 and 24 characters long.')])
+    password = PasswordField("Password", [validators.Length(max=4, message='Password must be between 4 and 24 characters long.'), validators.Length(max=24, message='Password must be between 4 and 24 characters long.')])
+    name = StringField("Name", [validators.Length(max=4, message='Name must be between 4 and 24 characters long.'), validators.Length(max=24, message='Name must be between 4 and 24 characters long.')])
 
     class Meta:
         csrf = False

@@ -4,9 +4,9 @@
 {% if vote_count is defined %}
 <p>Vote tally:</p>
 <ul>
-    {% for candidate in vote_count %}
+    {% for item in vote_count %}
     <li>
-        {{ candidate.name }} {{ vote_count }}
+        {{ item }}
     </li>
     {% endfor %}
 

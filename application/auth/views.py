@@ -40,6 +40,9 @@ def create_account():
 
     l = User(form.name.data, form.username.data, form.password.data, role)
 
+    if not form.validate():
+        return render_template("/auth/create_account", form = form)
+
     db.session().add(l)
     db.session().commit()
 
