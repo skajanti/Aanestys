@@ -4,7 +4,7 @@ Eduskuntavaalit kilpailutetaan yksityiselle sektorille. Google tekee tarjouksens
 
 Tietokanta on arkaluontoinen ja tarvitsee tietosujaa.
 
-Ominaisuuksia:
+### Ominaisuuksia:
 1. Kirjautuminen
 2. Ehdokkaan lisääminen ja muokkaaminen
 3. Äänestäjän lisääminen ja muokkaaminen
@@ -18,9 +18,18 @@ Ominaisuuksia:
 [Tietokantakaavio](https://github.com/skajanti/Aanestys/blob/master/documentation/tietokantakaavio.html)
 [Käyttötapauksia](https://github.com/skajanti/Aanestys/blob/master/documentation/user_story.txt)
 
-Äänestäjän luominen antaa tällä hetkellä jostain syystä seuraavan errorin: TypeError: 'str' object is not callable
-Rekisteröinti ei toimi
-
-Kirjautumistunnus:
-login: admin
+Admin-tunnus: 
+login: admin 
 password: admin
+
+### Asennus
+1. Varmista että python ja pip ovat asennettu ja toimivat.
+2. Lataa zip ja siirrä sen sisältämä kansio haluamaasi paikkaan.
+3. Avaa komentorivi ja navigoi siirtämääsi kansioon.
+4. Suorita komento: pip install -r requirements.txt
+### Käyttö
+1. Avaa komentorivi ja navigoi siirtämääsi kansioon.
+2. Aktivoi venv.
+  * Windowsilla venv\Scripts\activate.bat
+  * Linuxilla source venv/bin/activate
+3. Suorita komento: python run.py
