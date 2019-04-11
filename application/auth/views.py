@@ -11,7 +11,6 @@ def auth_login():
         return render_template("auth/loginform.html", form = LoginForm())
 
     form = LoginForm(request.form)
-    # mahdolliset validoinnit
 
     user = User.query.filter_by(username=form.username.data, password=form.password.data).first()
     if not user:
@@ -31,13 +30,15 @@ def auth_logout():
 def create_accountform():
     return render_template("auth/create_accountform.html", form=Account_CreateForm())
 
-@app.route("/auth/create_account", methods = ["POST"])
+@app.route("/auth/create_account", methods = ["GET", "POST"])
 def create_account():
     form = Account_CreateForm(request.form)
 
-    l = User(form.name.data, form.username.data, form.password.data)
-    # l.name = form.name.data
-    # l.password = form.password.data
+    role = "USER"
+    if form.name.data == "admin":
+        role = "ADMIN"
+
+    l = User(form.name.data, form.username.data, form.password.data, role)
 
     db.session().add(l)
     db.session().commit()

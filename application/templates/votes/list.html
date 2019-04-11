@@ -4,15 +4,18 @@
   <table>
     <tr>
       <th>Name</th>
+      <th>&ensp;</th>
       <th>Party</th>
     </tr>
     {% for candidate in votes %}
     <tr>
       <td>{{ candidate.name }}</td>
+      <td>&emsp;</td>
       <td>{{ candidate.party }}</td>
+      {% if current_user.is_authenticated %}
       <td>
 	      <form method="POST" action="{{ url_for('candidate_set_party', candidate_id=candidate.id) }}">
-	        <input type="text" name="party"/>
+	        <input type="text" name="party" size="10"/>
 	        <input type="submit" value="Set party"/>
 	      </form>
       </td>
@@ -26,6 +29,7 @@
           <input type="submit" value="Vote"/>
         </form>
       </td>
+      {% endif %}
     </tr>
     {% endfor %}
   </table>
