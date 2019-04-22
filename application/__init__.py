@@ -26,7 +26,6 @@ login_manager.login_message = "Please login to use this functionality."
 
 from functools import wraps
 from flask_login import current_user
-from application.auth.models import User
 
 def login_required(role="ANY"):
     def wrapper(fn):
@@ -55,8 +54,8 @@ def login_required(role="ANY"):
 
 from application import views
 
-from application.votes import models
-from application.votes import views
+from application.candidate import models
+from application.candidate import views
 
 from application.auth import models
 from application.auth import views
@@ -69,4 +68,3 @@ try:
     db.create_all()
 except:
     pass
-

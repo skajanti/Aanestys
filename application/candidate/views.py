@@ -1,7 +1,7 @@
 from application import app, db, login_required
-from application.votes.models import Candidate, Vote
+from application.candidate.models import Candidate, Vote
 from application.auth.models import User
-from application.votes.forms import CandidateForm, SetPartyForm
+from application.candidate.forms import CandidateForm, SetPartyForm
 
 from flask import redirect, render_template, request, url_for
 from flask_login import current_user

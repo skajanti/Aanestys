@@ -15,7 +15,7 @@ def auth_login():
     user = User.query.filter_by(username=form.username.data, password=form.password.data).first()
     if not user:
         return render_template("auth/loginform.html", form = form,
-                               error = "No such username or password")
+                               error = "The entered Username or Password was incorrect.")
 
 
     login_user(user)
@@ -41,7 +41,8 @@ def create_account():
     l = User(form.name.data, form.username.data, form.password.data, role)
 
     if not form.validate():
-        return render_template("/auth/create_account", form = form)
+        return render_template("/auth/create_accountform.html", form = form, 
+							   error = "Name, Username, and Password must be between 4 and 24 characters long.")
 
     db.session().add(l)
     db.session().commit()
