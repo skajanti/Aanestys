@@ -9,5 +9,6 @@ ja äänestää etänä.
 Käytännössä toteutuu SQL -kyselyillä: SELECT name, password FRON account WHERE name = 'nimi' AND password = 'salasana';
 ja: INSERT INTO Vote (id, candidate_id, voter_id) VALUES (rollingint, ehdokkaan id, käyttäjän id);
 
-Valtio käyttää joka vaaleissa miljoonia äänten keräämiseen ja laskemiseen, mikä vähentää mahdollisten kansanäänestysten määrää. 
+Valtio käyttää joka vaaleissa miljoonia äänten keräämiseen ja laskemiseen, mikä esim. vähentää mahdollisten kansanäänestysten
+määrää. 
 Sovelluksella valtio voi siirtää eduskuntavaalit sähköisest ja säästää huomattavasti rahaa.
