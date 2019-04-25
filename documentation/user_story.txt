@@ -1,8 +1,13 @@
 Käyttäjä haluaa tallentaa ehdokkaan tiedot. Käyttäjän tulee ensin lisätä ehdokas "Add a candidate" -sivulla, ja sitten avautuvalla
 sivulla lisätä ehdokkaan puolue.
 
+Käytännössä toteutuu SQL -kyselyllä: INSERT INTO Candidate (id, name, party) VALUES (rollingint, 'nimi', 'puolue');
+
 Käyttäjä on syntymäpäivä juuri äänestyspäivänä eikä hän halua tulla paikan päälle. Käyttäjä voi kirjautua palveluun missä tahansa
 ja äänestää etänä.
+
+Käytännössä toteutuu SQL -kyselyillä: SELECT name, password FRON account WHERE name = 'nimi' AND password = 'salasana';
+ja: INSERT INTO Vote (id, candidate_id, voter_id) VALUES (rollingint, ehdokkaan id, käyttäjän id);
 
 Valtio käyttää joka vaaleissa miljoonia äänten keräämiseen ja laskemiseen, mikä vähentää mahdollisten kansanäänestysten määrää. 
 Sovelluksella valtio voi siirtää eduskuntavaalit sähköisest ja säästää huomattavasti rahaa.
