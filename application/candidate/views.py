@@ -1,5 +1,6 @@
 from application import app, db, login_required
-from application.candidate.models import Candidate, Vote
+from application.candidate.models import Candidate
+from application.vote.models import Vote
 from application.auth.models import User
 from application.candidate.forms import CandidateForm, SetPartyForm
 
@@ -8,16 +9,16 @@ from flask_login import current_user
 from flask_wtf import FlaskForm
 from sqlalchemy.sql.expression import func
 
-@app.route("/votes", methods=["GET"])
+@app.route("/candidates", methods=["GET"])
 def votes_index():
-	return render_template("votes/list.html", votes = Candidate.query.all())
+	return render_template("candidate/list.html", votes = Candidate.query.all())
 
-@app.route("/votes/new/")
+@app.route("/candidates/new/")
 @login_required(role="ADMIN")
 def candidate_form():
-	return render_template("votes/new.html", form = CandidateForm())
+	return render_template("candidate/new.html", form = CandidateForm())
 
-@app.route("/votes/<candidate_id>/", methods=["POST"])
+@app.route("/candidates/<candidate_id>/", methods=["POST"])
 @login_required(role="ADMIN")
 def candidate_set_party(candidate_id):
 	#form = SetPartyForm(request.form)
@@ -28,7 +29,7 @@ def candidate_set_party(candidate_id):
 
 	return redirect(url_for("votes_index"))
 
-@app.route("/votes/", methods=["POST"])
+@app.route("/candidates/", methods=["POST"])
 @login_required(role="ADMIN")
 def candidate_create():
 	form = CandidateForm(request.form)
@@ -37,14 +38,14 @@ def candidate_create():
 	c.party = form.party.data
 
 	if not form.validate():
-		return render_template("votes/new.html", form = form)
+		return render_template("candidate/new.html", form = form)
 
 	db.session().add(c)
 	db.session().commit()
 
 	return redirect(url_for("votes_index"))
 
-@app.route("/votes/<candidateid>/remove_candidate", methods=["POST"])
+@app.route("/candidates/<candidateid>/remove_candidate", methods=["POST"])
 @login_required(role="ADMIN")
 def candidate_remove(candidateid):
 
@@ -53,18 +54,3 @@ def candidate_remove(candidateid):
 
 	db.session().commit()
 	return redirect(url_for("votes_index"))
-
-@app.route("/votes/<candidate_id>/vote/", methods=["POST"])
-@login_required(role="ANY")
-def cast_vote(candidate_id):
-
-	v = Vote(candidate_id, current_user.id)
-
-	db.session().add(v)
-	db.session().commit()
-
-	return redirect(url_for("votes_index"))
-
-@app.route("/votes_count", methods=["GET"])
-def votes_count():
-	return render_template("votes/vote_count.html", votes = Candidate.query.all(), vote_count=Candidate.count_votes())

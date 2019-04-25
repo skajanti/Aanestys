@@ -57,6 +57,9 @@ from application import views
 from application.candidate import models
 from application.candidate import views
 
+from application.vote import models
+from application.vote import views
+
 from application.auth import models
 from application.auth import views
 
