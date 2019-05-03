@@ -32,6 +32,7 @@ password: admin
 2. Lataa zip ja siirrä sen sisältämä kansio haluamaasi paikkaan.
 3. Avaa komentorivi ja navigoi siirtämääsi kansioon.
 4. Suorita komento: pip install -r requirements.txt
+5. Assenna virtuaaliympäristö komennolla: python3 -m venv venv
 ### Käynnistys
 1. Avaa komentorivi ja navigoi siirtämääsi kansioon.
 2. Aktivoi venv.
