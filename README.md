@@ -17,7 +17,7 @@ Tietokanta on arkaluontoinen ja tarvitsee tietosujaa.
 
 [Ohjelma herokussa](https://tsoha-python-aanestys-seppo.herokuapp.com/)
 
-[Tietokantakaavio](https://github.com/skajanti/Aanestys/blob/master/documentation/luokkakaavio.pdf)
+[Tietokantakaavio](https://github.com/skajanti/Aanestys/blob/master/documentation/Luokkakaavio.pdf)
 
 [Käyttötapauksia](https://github.com/skajanti/Aanestys/blob/master/documentation/user_story.txt)
 
