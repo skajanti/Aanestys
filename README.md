@@ -15,7 +15,8 @@ Tietokanta on arkaluontoinen ja tarvitsee tietosujaa.
 
 **Tietokannan normalisointi suurin piirtein ok.**
 
-[Ohjelma herokussa](https://tsoha-python-aanestys-seppo.herokuapp.com/)
+[Ohjelma herokussa](https://tsoha-python-aanestys-seppo.herokuapp.com/) **Heroku ei toimi , eikä millään parannu; jos tähän
+löytyy jotain taikaa, sitä en valitettavasti löydä**
 
 [Tietokantakaavio](https://github.com/skajanti/Aanestys/blob/master/documentation/Luokkakaavio.pdf)
 
