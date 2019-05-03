@@ -42,7 +42,7 @@ def create_account():
 
     if not form.validate():
         return render_template("/auth/create_accountform.html", form = form, 
-							   error = "Name, Username, and Password must be between 4 and 24 characters long.")
+                               error = "Name, Username, and Password must be between 4 and 24 characters long.")
 
     db.session().add(l)
     db.session().commit()

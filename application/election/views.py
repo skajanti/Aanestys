@@ -4,9 +4,6 @@ from application.election.forms import ElectionForm
 
 from flask import redirect, render_template, request, url_for
 from sqlalchemy import update
-from flask_login import current_user
-from flask_wtf import FlaskForm
-from wtforms import IntegerField, validators
 
 
 @app.route("/election", methods=["GET", "POST"])
