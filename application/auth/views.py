@@ -1,5 +1,6 @@
 from flask import render_template, request, redirect, url_for
 from flask_login import login_user, logout_user
+from passlib.hash import pbkdf2_sha256
 
 from application import app, db
 from application.auth.models import User
@@ -12,8 +13,10 @@ def auth_login():
 
     form = LoginForm(request.form)
 
-    user = User.query.filter_by(username=form.username.data, password=form.password.data).first()
-    if not user:
+    user = User.query.filter_by(username=form.username.data).first()
+    res = pbkdf2_sha256.verify(form.password.data, user.password)
+
+    if not res:
         return render_template("auth/loginform.html", form = form,
                                error = "The entered Username or Password was incorrect.")
 
@@ -38,7 +41,9 @@ def create_account():
     if form.name.data == "admin":
         role = "ADMIN"
 
-    l = User(form.name.data, form.username.data, form.password.data, role)
+        hash1 = pbkdf2_sha256.hash(form.password.data)
+
+    l = User(form.name.data, form.username.data, hash1, role)
 
     if not form.validate():
         return render_template("/auth/create_accountform.html", form = form, 
