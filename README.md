@@ -52,11 +52,11 @@ password: admin
 se jolla kirjaudutaan, name antaa vain henkilökohtaisen tekstin uloskirjautumislinkkiin.
 4. Kirjautuaksesi sisään paina yläpalkin oikeassa laidassa "Login" -linkkiä. Täytä kentät juuri luomasi tunnuksen tiedoilla tai
 tässä dokumentissa annetulla admin-tunnuksella.
-5. Luodaksesi ehdokkaan paina yläpalkin vasemmassa laidassa "Add candidate" -linkkiä. Täytä kentät lisäämäsi ehdokkaan
-tiedoilla.
-6. Nähdäksesi listan ehdokkaista paina yläpalkin vasemmassa laidassa "List candidates" -linkkiä. Tässä näkymässä on lista
+5. Luodaksesi ehdokkaan paina yläpalkin vasemmassa laidassa "Add candidate" -linkkiä. Tämä vaatii admin-tilin käyttöä.
+6. Avataksesi vaalit paina yläpalkin keskellä "Open election" -linkkiä. Tämä vaatii admin-tilin käyttöä.
+7. Sulkeaksesi vaalit paina yläpalkin keskellä "Close election" -linkkiä. Tämä vaatii admin-tilin käyttöä.
+8. Nähdäksesi listan ehdokkaista paina yläpalkin vasemmassa laidassa "List candidates" -linkkiä. Tässä näkymässä on lista
 kaikista tietokannassa olevista ehdokkaista ja heidän puolueistaan (jos olet kirjautunut sisään) niiden vieressä on napit
-muuttaa ehdokkaan
-puoluetta, poistaa ehdokkaan tiedot ja äänestää ehdokasta.
-7. Laskeaksesi äänet paina yläpalkin vasemmassa laidassa "Tally votes" -linkkiä. Tässä näkymässä on lista ehdokkaista ja heidän
-äänistä.
+muuttaa ehdokkaan puoluetta, poistaa ehdokkaan tiedot ja äänestää ehdokasta. Voit äänestää vain jos vaalit ovat meneillään.
+9. Laskeaksesi äänet paina yläpalkin vasemmassa laidassa "Tally votes" -linkkiä. Tässä näkymässä on lista ehdokkaista ja heidän
+äänistä. Voit laskea äänet vain jos vaalit ovat meneillään.
