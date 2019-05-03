@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<form method="POST" action="{{ url_for('close_election') }}">
+    <table>
+        <tr>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Close election" />
+            </td>
+        </tr>
+    </table>
+</form>
+{% endblock %}

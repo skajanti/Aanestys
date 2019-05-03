@@ -63,6 +63,10 @@ from application.vote import views
 from application.auth import models
 from application.auth import views
 
+from application.election import models
+from application.election import views
+from application.election import forms
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)

@@ -13,8 +13,10 @@ class Candidate(db.Model):
 
 		
 	@staticmethod
-	def count_votes(done=0):
-		stmt = text("SELECT Candidate.name, count(Vote.id) FROM Vote LEFT JOIN Candidate ON Vote.candidate_id = Candidate.id GROUP BY Candidate.id").params(done=done)
+	def count_votes(year):
+		stmt = text("SELECT Candidate.name, count(Vote.id) FROM Vote LEFT JOIN Candidate "
+					"ON Vote.candidate_id = Candidate.id WHERE Vote.election_year = :year "
+					"GROUP BY Candidate.id").params(year = year)
 		
 		res = db.engine.execute(stmt)
 		
