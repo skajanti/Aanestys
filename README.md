@@ -13,7 +13,7 @@ Tietokanta on arkaluontoinen ja tarvitsee tietosujaa.
 6. Ehdokkaiden listaaminen
 7. Äänestäjien ja eri vaaleissa läsnäolon listaaminen
 
-**Tietokannan normalisointi muuten ok, mutta identtiset rivit estettävä ohjelmapuolella**
+**Tietokannan normalisointi suurin piirtein ok.**
 
 [Ohjelma herokussa](https://tsoha-python-aanestys-seppo.herokuapp.com/)
 
